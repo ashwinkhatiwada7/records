@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
-    agentFeedback: true,
+    // avatars are resized client-side, this is only headroom
+    serverActions: { bodySizeLimit: "3mb" },
   },
   cacheComponents: true,
   partialPrefetching: true,

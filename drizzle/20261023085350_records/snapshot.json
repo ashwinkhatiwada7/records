@@ -1,0 +1,1864 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "415794c3-6fd2-48e2-abd9-6db62a1d69c9",
+  "prevIds": [
+    "2e3ef793-be1b-409b-82ad-60bb227d915b"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "entry_type"
+      ],
+      "writes": [
+        "s|enum|public.entry_type",
+        "n|enum|public.entry_type",
+        "e|enum|public.entry_type",
+        "n|type|public.entry_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "page_status"
+      ],
+      "writes": [
+        "s|enum|public.page_status",
+        "n|enum|public.page_status",
+        "e|enum|public.page_status",
+        "n|type|public.page_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "customer"
+      ],
+      "writes": [
+        "s|tbl|public.customer",
+        "n|tbl|public.customer",
+        "e|tbl|public.customer",
+        "n|rel|public.customer",
+        "n|type|public.customer",
+        "n|rel|public.customer_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|tbl|public.entry",
+        "n|tbl|public.entry",
+        "e|tbl|public.entry",
+        "n|rel|public.entry",
+        "n|type|public.entry",
+        "n|rel|public.entry_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.entry_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "expense"
+      ],
+      "writes": [
+        "s|tbl|public.expense",
+        "n|tbl|public.expense",
+        "e|tbl|public.expense",
+        "n|rel|public.expense",
+        "n|type|public.expense",
+        "n|rel|public.expense_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "game"
+      ],
+      "writes": [
+        "s|tbl|public.game",
+        "n|tbl|public.game",
+        "e|tbl|public.game",
+        "n|rel|public.game",
+        "n|type|public.game",
+        "n|rel|public.game_pkey",
+        "n|rel|public.game_name_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "ledger_page"
+      ],
+      "writes": [
+        "s|tbl|public.ledger_page",
+        "n|tbl|public.ledger_page",
+        "e|tbl|public.ledger_page",
+        "n|rel|public.ledger_page",
+        "n|type|public.ledger_page",
+        "n|rel|public.ledger_page_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.page_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "payment_method"
+      ],
+      "writes": [
+        "s|tbl|public.payment_method",
+        "n|tbl|public.payment_method",
+        "e|tbl|public.payment_method",
+        "n|rel|public.payment_method",
+        "n|type|public.payment_method",
+        "n|rel|public.payment_method_pkey",
+        "n|rel|public.payment_method_name_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "customer",
+        "customer_name_idx"
+      ],
+      "writes": [
+        "s|idx|public.customer_name_idx",
+        "n|idx|public.customer_name_idx",
+        "e|idx|public.customer_name_idx",
+        "n|rel|public.customer_name_idx"
+      ],
+      "reads": [
+        "n|tbl|public.customer",
+        "n|sch|public",
+        "n|col|public.customer.name"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "entry",
+        "entry_page_idx"
+      ],
+      "writes": [
+        "s|idx|public.entry_page_idx",
+        "n|idx|public.entry_page_idx",
+        "e|idx|public.entry_page_idx",
+        "n|rel|public.entry_page_idx"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|col|public.entry.ledger_page_id",
+        "n|col|public.entry.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "entry",
+        "entry_customer_idx"
+      ],
+      "writes": [
+        "s|idx|public.entry_customer_idx",
+        "n|idx|public.entry_customer_idx",
+        "e|idx|public.entry_customer_idx",
+        "n|rel|public.entry_customer_idx"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|col|public.entry.customer_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "entry",
+        "entry_game_idx"
+      ],
+      "writes": [
+        "s|idx|public.entry_game_idx",
+        "n|idx|public.entry_game_idx",
+        "e|idx|public.entry_game_idx",
+        "n|rel|public.entry_game_idx"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|col|public.entry.game_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "expense",
+        "expense_page_idx"
+      ],
+      "writes": [
+        "s|idx|public.expense_page_idx",
+        "n|idx|public.expense_page_idx",
+        "e|idx|public.expense_page_idx",
+        "n|rel|public.expense_page_idx"
+      ],
+      "reads": [
+        "n|tbl|public.expense",
+        "n|sch|public",
+        "n|col|public.expense.ledger_page_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "ledger_page",
+        "ledger_page_status_idx"
+      ],
+      "writes": [
+        "s|idx|public.ledger_page_status_idx",
+        "n|idx|public.ledger_page_status_idx",
+        "e|idx|public.ledger_page_status_idx",
+        "n|rel|public.ledger_page_status_idx"
+      ],
+      "reads": [
+        "n|tbl|public.ledger_page",
+        "n|sch|public",
+        "n|col|public.ledger_page.status",
+        "n|col|public.ledger_page.opened_at"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "customer"
+      ],
+      "writes": [
+        "s|fk|public.customer.customer_created_by_user_id_fkey",
+        "n|fk|public.customer.customer_created_by_user_id_fkey",
+        "e|fk|public.customer.customer_created_by_user_id_fkey",
+        "n|con|public.customer.customer_created_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.customer",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.customer.created_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|fk|public.entry.entry_ledger_page_id_ledger_page_id_fkey",
+        "n|fk|public.entry.entry_ledger_page_id_ledger_page_id_fkey",
+        "e|fk|public.entry.entry_ledger_page_id_ledger_page_id_fkey",
+        "n|con|public.entry.entry_ledger_page_id_ledger_page_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|tbl|public.ledger_page",
+        "n|sch|public",
+        "n|col|public.entry.ledger_page_id",
+        "n|col|public.ledger_page.id",
+        "e|uniqueness|public.ledger_page.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|fk|public.entry.entry_customer_id_customer_id_fkey",
+        "n|fk|public.entry.entry_customer_id_customer_id_fkey",
+        "e|fk|public.entry.entry_customer_id_customer_id_fkey",
+        "n|con|public.entry.entry_customer_id_customer_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|tbl|public.customer",
+        "n|sch|public",
+        "n|col|public.entry.customer_id",
+        "n|col|public.customer.id",
+        "e|uniqueness|public.customer.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|fk|public.entry.entry_payment_method_id_payment_method_id_fkey",
+        "n|fk|public.entry.entry_payment_method_id_payment_method_id_fkey",
+        "e|fk|public.entry.entry_payment_method_id_payment_method_id_fkey",
+        "n|con|public.entry.entry_payment_method_id_payment_method_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|tbl|public.payment_method",
+        "n|sch|public",
+        "n|col|public.entry.payment_method_id",
+        "n|col|public.payment_method.id",
+        "e|uniqueness|public.payment_method.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|fk|public.entry.entry_game_id_game_id_fkey",
+        "n|fk|public.entry.entry_game_id_game_id_fkey",
+        "e|fk|public.entry.entry_game_id_game_id_fkey",
+        "n|con|public.entry.entry_game_id_game_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|tbl|public.game",
+        "n|sch|public",
+        "n|col|public.entry.game_id",
+        "n|col|public.game.id",
+        "e|uniqueness|public.game.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|fk|public.entry.entry_created_by_user_id_fkey",
+        "n|fk|public.entry.entry_created_by_user_id_fkey",
+        "e|fk|public.entry.entry_created_by_user_id_fkey",
+        "n|con|public.entry.entry_created_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.entry.created_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "expense"
+      ],
+      "writes": [
+        "s|fk|public.expense.expense_ledger_page_id_ledger_page_id_fkey",
+        "n|fk|public.expense.expense_ledger_page_id_ledger_page_id_fkey",
+        "e|fk|public.expense.expense_ledger_page_id_ledger_page_id_fkey",
+        "n|con|public.expense.expense_ledger_page_id_ledger_page_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.expense",
+        "n|sch|public",
+        "n|tbl|public.ledger_page",
+        "n|sch|public",
+        "n|col|public.expense.ledger_page_id",
+        "n|col|public.ledger_page.id",
+        "e|uniqueness|public.ledger_page.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "expense"
+      ],
+      "writes": [
+        "s|fk|public.expense.expense_payment_method_id_payment_method_id_fkey",
+        "n|fk|public.expense.expense_payment_method_id_payment_method_id_fkey",
+        "e|fk|public.expense.expense_payment_method_id_payment_method_id_fkey",
+        "n|con|public.expense.expense_payment_method_id_payment_method_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.expense",
+        "n|sch|public",
+        "n|tbl|public.payment_method",
+        "n|sch|public",
+        "n|col|public.expense.payment_method_id",
+        "n|col|public.payment_method.id",
+        "e|uniqueness|public.payment_method.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "expense"
+      ],
+      "writes": [
+        "s|fk|public.expense.expense_created_by_user_id_fkey",
+        "n|fk|public.expense.expense_created_by_user_id_fkey",
+        "e|fk|public.expense.expense_created_by_user_id_fkey",
+        "n|con|public.expense.expense_created_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.expense",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.expense.created_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "game"
+      ],
+      "writes": [
+        "s|fk|public.game.game_created_by_user_id_fkey",
+        "n|fk|public.game.game_created_by_user_id_fkey",
+        "e|fk|public.game.game_created_by_user_id_fkey",
+        "n|con|public.game.game_created_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.game",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.game.created_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "ledger_page"
+      ],
+      "writes": [
+        "s|fk|public.ledger_page.ledger_page_closed_by_user_id_fkey",
+        "n|fk|public.ledger_page.ledger_page_closed_by_user_id_fkey",
+        "e|fk|public.ledger_page.ledger_page_closed_by_user_id_fkey",
+        "n|con|public.ledger_page.ledger_page_closed_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.ledger_page",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.ledger_page.closed_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "ledger_page"
+      ],
+      "writes": [
+        "s|fk|public.ledger_page.ledger_page_created_by_user_id_fkey",
+        "n|fk|public.ledger_page.ledger_page_created_by_user_id_fkey",
+        "e|fk|public.ledger_page.ledger_page_created_by_user_id_fkey",
+        "n|con|public.ledger_page.ledger_page_created_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.ledger_page",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.ledger_page.created_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "payment_method"
+      ],
+      "writes": [
+        "s|fk|public.payment_method.payment_method_created_by_user_id_fkey",
+        "n|fk|public.payment_method.payment_method_created_by_user_id_fkey",
+        "e|fk|public.payment_method.payment_method_created_by_user_id_fkey",
+        "n|con|public.payment_method.payment_method_created_by_user_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.payment_method",
+        "n|sch|public",
+        "n|tbl|public.user",
+        "n|sch|public",
+        "n|col|public.payment_method.created_by",
+        "n|col|public.user.id",
+        "e|uniqueness|public.user.id"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "customer",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "entry",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "expense",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "game",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "ledger_page",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "payment_method",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "entry_type",
+        "values": [
+          "in",
+          "out"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "page_status",
+        "values": [
+          "open",
+          "closed"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "name",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "phone",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "note",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "created_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "ledger_page_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "customer_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "type",
+        "type": "entry_type",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "amount_cents",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "payment_method_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "game_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "note",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "created_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "ledger_page_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "description",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "amount_cents",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "payment_method_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "created_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "name",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "is_active",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "true",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "created_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "title",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "status",
+        "type": "page_status",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'open'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "note",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "opened_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "closed_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "closed_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "created_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "name",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "is_active",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "true",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "created_by",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "created_at",
+        "type": "timestamp",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "customer_name_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "name",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_page_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "ledger_page_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          },
+          {
+            "value": "created_at",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_customer_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "customer_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_game_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "game_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "expense_page_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "ledger_page_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "ledger_page_status_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "status",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          },
+          {
+            "value": "opened_at",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "customer_created_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "created_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_ledger_page_id_ledger_page_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "ledger_page_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "ledger_page",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_customer_id_customer_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "customer_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "customer",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_payment_method_id_payment_method_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "payment_method_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "payment_method",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_game_id_game_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "game_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "game",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_created_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "created_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "expense_ledger_page_id_ledger_page_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "ledger_page_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "ledger_page",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "expense_payment_method_id_payment_method_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "payment_method_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "payment_method",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "expense_created_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "created_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "game_created_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "created_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "ledger_page_closed_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "closed_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "SET NULL",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "ledger_page_created_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "created_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "payment_method_created_by_user_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "created_by"
+        ],
+        "schemaTo": "public",
+        "tableTo": "user",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "customer_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "expense_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "game_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "ledger_page",
+        "name": "ledger_page_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "payment_method_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "game",
+        "name": "game_name_key",
+        "nameExplicit": false,
+        "columns": [
+          "name"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "payment_method",
+        "name": "payment_method_name_key",
+        "nameExplicit": false,
+        "columns": [
+          "name"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry",
+        "name": "entry_amount_positive",
+        "value": "\"amount_cents\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "expense",
+        "name": "expense_amount_positive",
+        "value": "\"amount_cents\" > 0",
+        "entityType": "checks"
+      }
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "83f76d36-cce9-4028-bfb2-417a1f251f0a",
+  "prevIds": [
+    "415794c3-6fd2-48e2-abd9-6db62a1d69c9"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry_game"
+      ],
+      "writes": [
+        "s|tbl|public.entry_game",
+        "n|tbl|public.entry_game",
+        "e|tbl|public.entry_game",
+        "n|rel|public.entry_game",
+        "n|type|public.entry_game",
+        "n|rel|public.entry_game_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "drop_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry"
+      ],
+      "writes": [
+        "s|fk|public.entry.entry_game_id_game_id_fkey",
+        "n|fk|public.entry.entry_game_id_game_id_fkey",
+        "e|fk|public.entry.entry_game_id_game_id_fkey",
+        "n|con|public.entry.entry_game_id_game_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "e|col|public.entry.game_id"
+      ]
+    },
+    {
+      "statementType": "drop_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "entry",
+        "entry_game_idx"
+      ],
+      "writes": [
+        "s|idx|public.entry_game_idx",
+        "n|idx|public.entry_game_idx",
+        "e|idx|public.entry_game_idx",
+        "n|rel|public.entry_game_idx"
+      ],
+      "reads": [
+        "e|tbl|public.entry",
+        "n|sch|public",
+        "e|col|public.entry.game_id"
+      ],
+      "sharedWrites": []
+    },
+    {
+      "statementType": "add_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "customer",
+        "image_url"
+      ],
+      "writes": [
+        "s|col|public.customer.image_url",
+        "n|col|public.customer.image_url",
+        "e|col|public.customer.image_url"
+      ],
+      "reads": [
+        "n|tbl|public.customer",
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "add_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "customer",
+        "profile_url"
+      ],
+      "writes": [
+        "s|col|public.customer.profile_url",
+        "n|col|public.customer.profile_url",
+        "e|col|public.customer.profile_url"
+      ],
+      "reads": [
+        "n|tbl|public.customer",
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "drop_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "customer",
+        "note"
+      ],
+      "writes": [
+        "s|col|public.customer.note",
+        "n|col|public.customer.note",
+        "e|col|public.customer.note"
+      ],
+      "reads": [
+        "n|tbl|public.customer",
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "drop_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "entry",
+        "game_id"
+      ],
+      "writes": [
+        "s|col|public.entry.game_id",
+        "n|col|public.entry.game_id",
+        "e|col|public.entry.game_id"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "drop_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "entry",
+        "note"
+      ],
+      "writes": [
+        "s|col|public.entry.note",
+        "n|col|public.entry.note",
+        "e|col|public.entry.note"
+      ],
+      "reads": [
+        "n|tbl|public.entry",
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "drop_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "ledger_page",
+        "note"
+      ],
+      "writes": [
+        "s|col|public.ledger_page.note",
+        "n|col|public.ledger_page.note",
+        "e|col|public.ledger_page.note"
+      ],
+      "reads": [
+        "n|tbl|public.ledger_page",
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "entry_game",
+        "entry_game_game_idx"
+      ],
+      "writes": [
+        "s|idx|public.entry_game_game_idx",
+        "n|idx|public.entry_game_game_idx",
+        "e|idx|public.entry_game_game_idx",
+        "n|rel|public.entry_game_game_idx"
+      ],
+      "reads": [
+        "n|tbl|public.entry_game",
+        "n|sch|public",
+        "n|col|public.entry_game.game_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry_game"
+      ],
+      "writes": [
+        "s|fk|public.entry_game.entry_game_entry_id_entry_id_fkey",
+        "n|fk|public.entry_game.entry_game_entry_id_entry_id_fkey",
+        "e|fk|public.entry_game.entry_game_entry_id_entry_id_fkey",
+        "n|con|public.entry_game.entry_game_entry_id_entry_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry_game",
+        "n|sch|public",
+        "n|tbl|public.entry",
+        "n|sch|public",
+        "n|col|public.entry_game.entry_id",
+        "n|col|public.entry.id",
+        "e|uniqueness|public.entry.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "entry_game"
+      ],
+      "writes": [
+        "s|fk|public.entry_game.entry_game_game_id_game_id_fkey",
+        "n|fk|public.entry_game.entry_game_game_id_game_id_fkey",
+        "e|fk|public.entry_game.entry_game_game_id_game_id_fkey",
+        "n|con|public.entry_game.entry_game_game_id_game_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.entry_game",
+        "n|sch|public",
+        "n|tbl|public.game",
+        "n|sch|public",
+        "n|col|public.entry_game.game_id",
+        "n|col|public.game.id",
+        "e|uniqueness|public.game.id"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "entry_game",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "image_url",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "customer",
+        "name": "profile_url",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry_game",
+        "name": "entry_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry_game",
+        "name": "game_id",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry_game",
+        "name": "entry_game_game_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "game_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "concurrently": false,
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry_game",
+        "name": "entry_game_entry_id_entry_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "entry_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "entry",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry_game",
+        "name": "entry_game_game_id_game_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "game_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "game",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "entry_game",
+        "name": "entry_game_pkey",
+        "columns": [
+          "entry_id",
+          "game_id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "drop",
+      "key": "columns\u0000[\"public\",\"customer\",\"note\"]"
+    },
+    {
+      "op": "drop",
+      "key": "columns\u0000[\"public\",\"entry\",\"game_id\"]"
+    },
+    {
+      "op": "drop",
+      "key": "columns\u0000[\"public\",\"entry\",\"note\"]"
+    },
+    {
+      "op": "drop",
+      "key": "columns\u0000[\"public\",\"ledger_page\",\"note\"]"
+    },
+    {
+      "op": "drop",
+      "key": "indexes\u0000[\"public\",\"entry_game_idx\"]"
+    },
+    {
+      "op": "drop",
+      "key": "fks\u0000[\"public\",\"entry\",\"entry_game_id_game_id_fkey\"]"
+    }
+  ]
+}
